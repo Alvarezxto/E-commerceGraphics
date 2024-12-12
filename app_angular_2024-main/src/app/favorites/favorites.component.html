@@ -1,0 +1,17 @@
+<div *ngIf="favoriteProducts.length > 0; else noFavorites">
+  <h2>Productos Favoritos</h2>
+  <div *ngFor="let product of favoriteProducts">
+    <div class="card">
+      <img [src]="product.imageUrl" alt="{{ product.name }}" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <p class="card-text">{{ product.price | currency }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noFavorites>
+  <p>No tienes productos favoritos.</p>
+</ng-template>

@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-body">
+    <!-- Imagen del producto -->
+    <img [src]="product.imageUrl" alt="{{ product.name }}" class="card-img-top" />
+
+    <h5 class="card-title">{{ product.name }}</h5>
+    <p class="card-text">{{ product.description }}</p>
+    <p class="card-text">{{ product.price | currency }}</p>
+
+    <!-- Botón para agregar al carrito -->
+    <button class="btn btn-success" (click)="onAddItem(product)">Agregar al carro</button>
+
+    <!-- Botón para alternar favoritos -->
+    <button 
+      class="btn" 
+      [ngClass]="{'btn-danger': product.isFavorite, 'btn-outline-danger': !product.isFavorite}" 
+      (click)="toggleFavorite()">
+      {{ product.isFavorite ? 'Quitar de Favoritos' : 'Agregar a Favoritos' }}
+    </button>
+  </div>
+</div>
